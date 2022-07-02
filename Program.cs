@@ -7,8 +7,7 @@ namespace ConsoleTryToGuessNumber
         static void Main(string[] args)
         {
             Console.WriteLine("Is the number more than that");
-            int t;
-            int g = 0;
+           int g = 0;
             Console.WriteLine(g);
             string k = Console.ReadLine();
             if (k == ">")
@@ -23,8 +22,7 @@ namespace ConsoleTryToGuessNumber
             {
                 Console.WriteLine("that means i won");
             }
-           
-            Console.WriteLine(g);
+           Console.WriteLine(g);
             k = Console.ReadLine();          
             while (k!="Yes")
             {
@@ -37,50 +35,33 @@ namespace ConsoleTryToGuessNumber
                         k = Console.ReadLine();
                         
                     }
-
                     if (g == -2 && k == ">")
                     {
                         g = g + 1;
                         Console.WriteLine(g);
                         k = Console.ReadLine();
                     }
-                    t = g;
-                    while (k == ">")
+                    int d = g - (g / 4) - (g / 2);
+                    while (k != "Yes")
                     {
-                        
-                        g = (g / 2) + (g / 4);
-                        
-
-                        if (g % 2 == 1)
+                        if (k == ">")
                         {
-                            Console.WriteLine(g + 1);
-                            k = Console.ReadLine();
-                        }
-                        else
-                        {
+                            g = g - d;
+                            d = d / 2;
                             Console.WriteLine(g);
                             k = Console.ReadLine();
                         }
-                    }
-                    while (k == "<")
-                    {
-                        
-                        g = (t-g)/2 +g ;
-
-                        if (g % 2 == 1)
+                        else if (k == "<")
                         {
-                            Console.WriteLine(g + 1);
-                            k = Console.ReadLine();
-                        }
-                        else
-                        {
+                            g = d + g;
+                            d = d / 2;
                             Console.WriteLine(g);
                             k = Console.ReadLine();
                         }
                     }
 
                 }
-                if (g > 0)
+                while (k!="Yes"&&g > 0)
                 {
                     while (k != "<")
                     {
@@ -89,38 +70,43 @@ namespace ConsoleTryToGuessNumber
                         k = Console.ReadLine();
 
                     }
-
-                    if (g == 2 && k == "<")
-                    {
-                        g = g - 1;
-                        Console.WriteLine(g);
-                        k = Console.ReadLine();
-                    }
-                    t = g;
-                    while (k == "<")
-                    {
-
-                        g = (g / 2) + (g / 4);
-
-
-                       
-                       
+                    while (k != "<")
+                        {
+                            g = g * 2;
                             Console.WriteLine(g);
                             k = Console.ReadLine();
-                        
-                    }
-                    while (k == ">")
-                    {
 
-                        g = (t - g) / 2 + g;
-
-                        
-                        
+                        }
+                        if (g == 2 && k == "<")
+                        {
+                            g = g - 1;
                             Console.WriteLine(g);
                             k = Console.ReadLine();
+                        }
+                         int d = g - (g / 4) - (g / 2);
+                        while (k != "Yes")
+                        {
+                        if (k == "<")
+                        {
+                            g = g - d;
+                            d = d / 2;
+                            Console.WriteLine(g);
+                            k = Console.ReadLine();
+                        }
+                        else if (k == ">")
+                        {
+                            g = d + g;
+                            d = d / 2;
+                            Console.WriteLine(g);
+                            k = Console.ReadLine();
+                        }
+                   }
                         
-                    }
+                            
 
+                       
+
+                    
                 }
 
             }
